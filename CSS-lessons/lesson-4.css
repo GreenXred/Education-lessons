@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    position: fixed;
+    right: 50%;
+    color: darkmagenta;
+}
+
+button {
+    position: fixed;
+    bottom: 0;
+    right: 50%;
+    padding: 30px;
+}
+
+.top-hints {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-top-hint {
+    background: aqua;
+    padding: 100px;
+}
+
+.right-top-hint {
+    background: aquamarine;
+    padding: 100px;
+}
+
+.bot-left-hint {
+    position: absolute;
+    bottom: 0;
+    background: antiquewhite;
+    padding: 100px;
+}
+
+.bot-right-hint {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: coral;
+    padding: 100px;
+}
