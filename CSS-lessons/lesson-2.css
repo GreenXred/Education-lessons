@@ -1,0 +1,15 @@
+/* - первый тег p стал зелёным */
+/* - второй тег p стал красным */
+/* - не используй !important! */
+
+h1 {
+    color: blue;
+}
+
+.text {
+    color: green;
+}
+.highlight {
+    color: red;
+}
+
