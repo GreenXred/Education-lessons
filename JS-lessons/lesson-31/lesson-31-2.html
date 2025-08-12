@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="MyExpenses">Мои расходы
+        <form id="expensesForm">
+            <label for="date">Дата</label>
+            <input id="date" type="text" name="date" placeholder="01.01.2025" required>    
+            <label for="value">Сумма</label>
+            <input id="value" type="text" name="value" placeholder="10000" required>
+            <label for="description">Описание</label>
+            <input id="description" type="text" name="description" placeholder="Куплена клавиатура" required>
+            <button id="submitButton" type="submit">Добавить запись</button>
+        </form>
+    </div>
+    <div class="displayArea"></div>
+    
+
+    <script src="./lesson-31.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="name">Имя и фамилия</label>
+    <input type="text" id="name" placeholder="Иван Иванов" required>
+
+    <label for="age">Возраст</label>
+    <input type="number" id="age" min="1" max="100" required>
+
+    <label for="email">Электронная почта</label>
+    <input type="email" id="email" placeholder="for@example.com" required>
+
+
+    <div>Миссия:</div>
+    <div>
+        <label for="researcher-mission">Исследователь</label>
+        <input type="radio" id="researcher-mission" name="mission" value="mission" required>
+    </div>
+    <div>
+        <label for="engineer-mission">Инженер</label>
+        <input type="radio" id="engineer-mission" name="mission" value="mission" required>
+    </div>
+    <div>
+        <label for="doctor-mission">Врач</label>
+        <input type="radio" id="doctor-mission" name="mission" value="mission" required>
+    </div>
+
+    <div>Навыки:</div>
+    <label for="skills">
+        <div>
+            <input type="checkbox" id="skills" name="skills" value="skills" required>
+            Программирование
+        </div>
+        <div>
+            <input type="checkbox" id="skills" name="skills" value="skills" required>
+            Медицина
+        </div>
+        <div>
+            <input type="checkbox" id="skills" name="skills" value="skills" required>
+            Строительство
+        </div>
+    </label>
+
+    <div>Краткое описание, почему ты хочешь полететь на Марс:</div>
+    <textarea name="short-discription" id="short-discription" cols="45" rows="5"></textarea>
+
+    <div>Фото для анкеты</div>
+    <input type="file" id="photo" required>
+
+    <input type="checkbox" id="approval" name="approval" value="approval" required>
+    Я согласен с условиями миссии
+
+    <div>
+        <button id="questionnaire-button" type="submit">Отправить анкету</button>
+    </div>
+
+</body>
+
+</html>
