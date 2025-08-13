@@ -8,58 +8,60 @@
 </head>
 
 <body>
-    <label for="name">Имя и фамилия</label>
-    <input type="text" id="name" placeholder="Иван Иванов" required>
+    <form action="">
+        <label for="name">Имя и фамилия</label>
+        <input type="text" id="name" placeholder="Иван Иванов" required>
 
-    <label for="age">Возраст</label>
-    <input type="number" id="age" min="1" max="100" required>
+        <label for="age">Возраст</label>
+        <input type="number" id="age" min="1" max="100" required>
 
-    <label for="email">Электронная почта</label>
-    <input type="email" id="email" placeholder="for@example.com" required>
+        <label for="email">Электронная почта</label>
+        <input type="email" id="email" placeholder="for@example.com" required>
 
 
-    <div>Миссия:</div>
-    <div>
-        <label for="researcher-mission">Исследователь</label>
-        <input type="radio" id="researcher-mission" name="mission" value="mission" required>
-    </div>
-    <div>
-        <label for="engineer-mission">Инженер</label>
-        <input type="radio" id="engineer-mission" name="mission" value="mission" required>
-    </div>
-    <div>
-        <label for="doctor-mission">Врач</label>
-        <input type="radio" id="doctor-mission" name="mission" value="mission" required>
-    </div>
-
-    <div>Навыки:</div>
-    <label for="skills">
+        <div>Миссия:</div>
         <div>
-            <input type="checkbox" id="skills" name="skills" value="skills" required>
-            Программирование
+            <label for="researcher-mission">Исследователь</label>
+            <input type="radio" id="researcher-mission" name="mission" value="reseacher" required>
         </div>
         <div>
-            <input type="checkbox" id="skills" name="skills" value="skills" required>
-            Медицина
+            <label for="engineer-mission">Инженер</label>
+            <input type="radio" id="engineer-mission" name="mission" value="engineer" required>
         </div>
         <div>
-            <input type="checkbox" id="skills" name="skills" value="skills" required>
-            Строительство
+            <label for="doctor-mission">Врач</label>
+            <input type="radio" id="doctor-mission" name="mission" value="doctor" required>
         </div>
-    </label>
 
-    <div>Краткое описание, почему ты хочешь полететь на Марс:</div>
-    <textarea name="short-discription" id="short-discription" cols="45" rows="5"></textarea>
+        <div>Навыки:</div>
+        <label for="skills">
+            <div>
+                <input type="checkbox" id="coding-skill" name="skills" value="coding" required>
+                Программирование
+            </div>
+            <div>
+                <input type="checkbox" id="medicine-skill" name="skills" value="medicine">
+                Медицина
+            </div>
+            <div>
+                <input type="checkbox" id="construction-skill" name="skills" value="construction">
+                Строительство
+            </div>
+        </label>
 
-    <div>Фото для анкеты</div>
-    <input type="file" id="photo" required>
+        <div>Краткое описание, почему ты хочешь полететь на Марс:</div>
+        <textarea name="short-discription" id="short-discription" cols="45" rows="5"></textarea>
 
-    <input type="checkbox" id="approval" name="approval" value="approval" required>
-    Я согласен с условиями миссии
+        <div>Фото для анкеты</div>
+        <input type="file" id="photo" required>
 
-    <div>
-        <button id="questionnaire-button" type="submit">Отправить анкету</button>
-    </div>
+        <input type="checkbox" id="approval" name="approval" value="approval" required>
+        Я согласен с условиями миссии
+
+        <div>
+            <button id="questionnaire-button" type="submit">Отправить анкету</button>
+        </div>
+    </form>
 
 </body>
 
