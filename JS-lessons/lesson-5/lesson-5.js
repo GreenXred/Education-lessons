@@ -22,6 +22,10 @@ function evenNumber (n) {
         console.log("Введите число")
         return
     } 
+    if (n === "") {
+        console.log("Вы ввели пустую строку");
+        return;
+    }    
     if (isNaN(Number(n))) {
         console.log("Вы ввели не число")
         return
@@ -33,7 +37,7 @@ function evenNumber (n) {
     };
 };
 
-evenNumber()
+evenNumber("")
 
 // 3. Напиши программу, которая проверяет, если переменная name пуста или не задана, то в консоль должно выводиться сообщение "Hello, Guest!". 
 // Если переменная name содержит значение, то программа должна вывести сообщение "Hello, [name]!", где [name] — это значение переменной.
