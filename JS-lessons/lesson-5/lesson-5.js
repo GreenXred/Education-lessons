@@ -22,7 +22,7 @@ function evenNumber (n) {
         console.log("Введите число")
         return
     } 
-    if (typeof n !== "number" && isNaN(n)) {
+    if (isNaN(Number(n))) {
         console.log("Вы ввели не число")
         return
     }
@@ -39,11 +39,11 @@ evenNumber()
 // Если переменная name содержит значение, то программа должна вывести сообщение "Hello, [name]!", где [name] — это значение переменной.
 
 function check (name) {
-    if (name == null) {
+    if (!name) {
         console.log("Hello, Guest!")
     } else {
         console.log(`Hello, ${name}!`)
     }
 };
 
-check()
+check("")
