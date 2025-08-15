@@ -18,7 +18,7 @@ checkNumber(0);
 
 
 function bmi(weight, height) {
-    let bmiValue = weight / (height * height);
+    const bmiValue = weight / (height * height);
     switch (true) {
         case bmiValue <= 16:
             console.log("Выраженный дефицит массы тела");
@@ -48,50 +48,55 @@ bmi(59, 1.72);
 
 // 3. Используй оператор switch, чтобы вывести название месяца на основе введенного пользователем числа (1-12);
 
-let monthNumber = 5;
+let monthNumber = 0;
 
 switch (monthNumber) {
-    case 1: 
+    case 1:
         console.log("Январь");
         break;
-    case 2: 
+    case 2:
         console.log("Февраль");
         break;
-    case 3: 
+    case 3:
         console.log("Март");
         break;
-    case 4: 
+    case 4:
         console.log("Апрель");
         break;
-    case 5: 
+    case 5:
         console.log("Май");
         break;
-    case 6: 
+    case 6:
         console.log("Июнь");
         break;
-    case 7: 
+    case 7:
         console.log("Июль");
         break;
-    case 8: 
+    case 8:
         console.log("Август");
         break;
-    case 9: 
+    case 9:
         console.log("Сентябрь");
         break;
-    case 10: 
+    case 10:
         console.log("Октябрь");
         break;
-    case 11: 
+    case 11:
         console.log("Ноябрь");
         break;
-    case 12: 
+    case 12:
         console.log("Декабрь");
         break;
+    default:
+        if (monthNumber <= 0 || monthNumber > 12) {
+            console.log("Введите корректное число от 1 до 12");
+        }
+
 }
 
 // 4. Придумай свое условие и опиши его в помощью оператора switch/case.
 
-let hour = 18;
+let hour = 22;
 
 switch (true) {
     case hour >= 6 && hour <= 9:
@@ -109,7 +114,7 @@ switch (true) {
     case hour >= 18 && hour <= 21:
         console.log("Ужин — что-то лёгкое");
         break;
-    case hour >= 22 && hour <= 5:
+    case hour >= 22 || hour <= 5:
         console.log("Поздний перекус или лучше спать");
-        break;  
+        break;
 }
