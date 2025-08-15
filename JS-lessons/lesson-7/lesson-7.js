@@ -18,15 +18,31 @@ console.log(sum);
 
 // 3.*Выведи в консоль все простые числа от 0 до 100.
 
+// for (let i = 2; i <= 100; i++) {
+//     if ( i == 2) {
+//         console.log(i);
+//     }
+//     for (let j = 2; j < i; j++) {
+//         if (i % j === 0) {
+//             break;
+//         } else if (j + 1 === i) {
+//             console.log(i);
+//         }
+//     }
+// }
+
 for (let i = 2; i <= 100; i++) {
-    if ( i == 2) {
-        console.log(i);
-    }
+    let isTrue = true; // предполагается, что любое число изначально всегда простое
+  
     for (let j = 2; j < i; j++) {
-        if (i % j === 0) {
-            break;
-        } else if (j + 1 === i) {
-            console.log(i);
-        }
+      if (i % j === 0) { // если после всех итераций находится делитель без остатка, то флаг false и цикл прерывается
+        isTrue = false; 
+        break;           
+      }
     }
-}
+  
+    if (isTrue) {
+      console.log(i);
+    }
+  }
+  
