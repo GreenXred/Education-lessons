@@ -17,20 +17,27 @@ console.log(filledArr);
 
 // 3. Есть массив чисел, посчитай сумму его элементов. Пример: [1, 2, 3] -> 6. Подсказка: используй reduce;
 
-const arr3 = [1,2,3];
+const arr3 = [1, 2, 3];
 
-const sum = arr3.reduce((total, item) => total + item,0);
+const sum = arr3.reduce((total, item) => total + item, 0);
 
 console.log(sum);
 
 
 // 4. Напиши программу, которая развернет массив, то есть все элементы будут в обратном порядке. Нельзя использовать reverse()!
 
-const arr4 = [1, 2, 3, 4, 5];
+let arr4 = [1, 2, 3, 4, 5];
 
-const reversedArr = arr4.reverse();
+function reverse() {
+    let newArr = [];
 
-console.log(reversedArr);
+    arr4.forEach(element => {
+        newArr.unshift(element);
+    });
+    return newArr;
+}
+
+console.log(reverse());
 
 // 5. Создай две переменных - две строки с использованием let и const. Попробуйте изменить значения всех этих переменных. 
 // Создайте два массива с использованием let и const. Попробуйте изменить массивы (добавить и удалить элементы) и переопределить сами массивы. 
@@ -58,7 +65,7 @@ function changeString2() {
 
 let arr5 = [1, 2, 3];
 
-arr5.push(4); 
+arr5.push(4);
 
 console.log(arr5);
 
@@ -75,7 +82,7 @@ changeArr5();
 
 const arr6 = [4, 5, 6];
 
-arr6.push(7); 
+arr6.push(7);
 
 console.log(arr6);
 
