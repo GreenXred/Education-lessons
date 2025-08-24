@@ -1,69 +1,52 @@
-// Задание 1. Напиши функцию, которая использует setTimeout для создания таймера обратного отсчета. 
-// Таймер должен выводить оставшееся время каждую секунду и останавливаться, когда время закончится. 
+// 1. Напиши функцию `getUserData`, которая возвращает промис с данными пользователя через 2 секунды. 
+// Затем создай цепочку промисов, которая обрабатывает эти данные и выводит результат в консоль;
 
-function timer() {
-    for (let i = 10; i >= 0; i--) {
-        setTimeout(() => {
-            if (i > 0) {
-                console.log(i);
-            } else {
-                console.log('Время вышло!');
-            }
-        }, (10 - i) * 1000);
-    }
-}
-
-function timer(sec) {
-    if (sec > 0) {
-        console.log(sec);
-        setTimeout(() => timer (sec - 1), 1000);
-    } else {
-        console.log('Время вышло!');
-    }
-}
-
-timer(5);
-
-// Задание 2. Напишите функцию, которая использует setInerval для вывода сообщения "Не забудь выпить воды!" каждые 30 минут.
-
-function needWater() {
-    setInterval(() => {
-        console.log('Не забудь выпить воды!');
-    }, 1800000); // 30 минут
-}
-
-needWater();
-
-// Задание 3. При клике на кнопку текст выводится в консоль через указанную задержку до тех пор, пока пользовтель снова не нажмет кнопку.
-// Если пользователь снова нажмет кнопку, то опять текст выводится сразу же и т.д.
-
-
-let intervalId = null; // чтобы хранить ID таймера
-
-document.getElementById('btn').addEventListener('click', function(event) {
-    event.preventDefault(); // чтобы не перезагружалась страница
-
-    // Получаем значения из инпутов
-    const delayInput = document.getElementById('time-delay');
-    const textInput = document.getElementById('text');
-    const delay = Number(delayInput.value);
-
-    // Если пользователь ввёл не число или число меньше 1 — игнорируем
-    if (isNaN(delay) || delay < 1) {
-        console.log('Укажите корректную задержку в секундах');
-        return;
-    }
-
-    // Очищаем предыдущий интервал, если есть
-    if (intervalId !== null) {
-        clearInterval(intervalId);
-    }
-
-    // Сразу выводим текст
-    console.log(textInput.value);
-
-    // Запускаем новый интервал
-    intervalId = setInterval(() => {
-        console.log(textInput.value);
-    }, delay * 1000);
+const getUserData = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve('Данные загружены');
+    }, 2000);
 });
+
+getUserData
+    .then((data) => {
+        console.log(data);
+        return 'Данные обработаны';
+    })
+    .then((processed) => {
+        console.log(processed);
+    })
+    .catch((error) => {
+        console.log('Ошибка', error);
+    });
+
+// 2. Напиши две функции, каждая из которых возвращает промис с данными через 3 и 5 секунд соответственно. 
+// Используй такой метод промисов, чтобы дождаться выполнения обоих промисов и вывести результаты в консоль;
+
+const promise1 = new Promise((resolve) => setTimeout(resolve, 3000, 'Промис 1 выполнен!'));
+const promise2 = new Promise((resolve) => setTimeout(resolve, 5000, 'Промис 2 выполнен!'));
+
+Promise.allSettled([promise1, promise2])
+    .then((results) => {
+        results.forEach((result) => {
+            if (result.status === 'fulfilled') {
+                console.log('Выполнен:', result.value);
+            } else {
+                console.log('Отклонено:', result.reason);
+            }
+        });
+    });
+
+// 3. Напиши две функции, каждая из которых возвращает промис через случайное время (от 1 до 5 секунд). 
+// Используй такой метод промисов, чтобы вывести результат первого выполненного промиса в консоль.
+
+const promise3 = new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 5 + 1) * 1000, 'Промис 3 выполнен!'));
+const promise4 = new Promise((resolve) => setTimeout(resolve, Math.floor(Math.random() * 5 + 1) * 1000, 'Промис 3 выполнен!'));
+
+Promise.race([promise3, promise4])
+    .then((result) => {
+        console.log(result)
+    })
+    .catch((error) => {
+        console.log('Ошибка!', error);
+    });
+
