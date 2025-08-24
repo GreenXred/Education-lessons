@@ -58,17 +58,39 @@ log();
 
 // Реализация должна быть через цикл, НЕ через рекурсию!
 
-const fibonacci = n => {
-    let prev = 0, next = 1;
-    for (let i = 0; i < n; i++) {
-        let current = next;
-        next = prev + next;
-        prev = current;
+
+function createFibonacciCalculator() {
+    let cache = { 0: 0, 1: 1 }; 
+
+
+    function fibonacci(n) {
+        if (n in cache) {
+            return cache[n];
+        }
+
+        let prev = cache[0];
+        let next = cache[1];
+
+        for (let i = 2; i <= n; i++) { // Если F(i) ещё не записан в кэш 
+            if (!(i in cache)) {
+                cache[i] = prev + next;
+            }
+            prev = next;
+            next = cache[i];
+        }
+
+        return cache[n];
     }
-    return prev;
+
+    return fibonacci; // возвращаем саму функцию fibonacci
 }
 
-console.log(fibonacci(10));
+const fibonacci = createFibonacciCalculator();
+
+console.log(fibonacci(5));  
+console.log(fibonacci(10)); 
+console.log(fibonacci(50)); 
+
 // Пример:
 
 // const fibonacci = createFibonacciCalculator();
