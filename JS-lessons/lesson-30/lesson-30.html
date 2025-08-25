@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
 
-    <div id="div1">
-        <div id="div2">
-            <div id="div3">div 3</div>
+<body>
+    <div>
+        <div id="div1">div1
+            <div id="div2">div2
+                <div id="div3">div3</div>
+            </div>
         </div>
     </div>
+    <form id="validationForm" action="">
+        <label for="name">
+            <input type="text" name="name" id="name" placeholder="Имя" class="validate" required>
+        </label>
+        <label for="city">
+            <input type="text" name="city" id="city" placeholder="Город" class="validate" required>
+        </label>
+        <button type="submit">Отправить</button>
+    </form>
 
     <script src="./lesson-30.js"></script>
 </body>
+
 </html>
