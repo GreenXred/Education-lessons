@@ -1,16 +1,30 @@
 // 1. Напиши функцию, которая использует `setTimeout` для создания таймера обратного отсчета. 
 // Таймер должен выводить оставшееся время каждую секунду и остановиться, когда время истечет;
-//
+
 // function countdown(time) {
-//     for (let i = time; i > 0; i--) {
+//     for (let i = time; i >= 0; i--) {
 //         setTimeout(() => {
 //             console.log(i);
 //         }, (time - i) * 1000);
 //     }
 // }
-//
+
 // countdown(5);
-//
+
+// function countdownSetInterval(time) {
+//     let timer = setInterval(() => {
+//         if (time > 0) {
+//             console.log(time);
+//             time--;
+//         } else {
+//             console.log('Время вышло!');
+//             clearInterval(timer);
+//         }
+//     }, 1000);
+// }
+
+// countdownSetInterval(5);
+
 // 2. Напиши функцию, которая использует `setInterval` для вывода сообщения "Не забудь выпить воды!" каждые 30 минут;
 
 // function reminder() {
@@ -31,32 +45,65 @@
 const delayInput = document.getElementById('delay');
 const textInput = document.getElementById('text-input');
 const submitButton = document.getElementById('submit');
+const form = document.querySelector('form');
 
 let timerId = null; // id setInterval
 let isRunning = false; // переключатель (запущен ли интервал)
 
-document.querySelector('form').addEventListener('submit', (event) => {
-    event.preventDefault();
-});
+function resetUI() {
+    submitButton.textContent = 'Старт';
+    form.reset();               
+    delayInput.focus();
+}
 
-submitButton.addEventListener('click', () => {
-    const delayTime = Number(delayInput.value);
-    const text = textInput.value;
-
-    if (!isRunning) {
-        if (delayTime > 0) {
-            timerId = setInterval(()=> {
-                console.log(text);
-            }, delayTime * 1000);
-            submitButton.textContent = 'Стоп';
-        }
-        isRunning = true;
-    } else {
+function stopTimer() {
+    if (timerId !== null) {
         clearInterval(timerId);
         timerId = null;
-        isRunning = false;
-        submitButton.textContent = 'Старт';
     }
+    isRunning = false;
+    resetUI();
+}
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const delayTime = Number(delayInput.value);
+    const text = textInput.value.trim();
+    
+    if (isRunning) {
+        stopTimer();
+        return;
+    }
+    
+    isRunning = true;
+    submitButton.textContent = 'Стоп';
+    
+    timerId = setInterval(() => {
+        console.log(text);
+    }, delayTime * 1000);
 });
 
+// document.querySelector('form').addEventListener('submit', (event) => {
+//     event.preventDefault();
+// });
 
+// submitButton.addEventListener('click', () => {
+//     const delayTime = Number(delayInput.value);
+//     const text = textInput.value;
+
+//     if (!isRunning) {
+//         if (delayTime > 0) {
+//             timerId = setInterval(()=> {
+//                 console.log(text);
+//             }, delayTime * 1000);
+//             submitButton.textContent = 'Стоп';
+//         }
+//         isRunning = true;
+//     } else {
+//         clearInterval(timerId);
+//         timerId = null;
+//         isRunning = false;
+//         submitButton.textContent = 'Старт';
+//     }
+// });
