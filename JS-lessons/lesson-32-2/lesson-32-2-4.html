@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="updateUserForm">
+        <label for="uId">User ID
+          <input type="number" id="uId" placeholder="1" min="1" max="10" required>
+        </label>
+      
+        <label for="uName">Name
+          <input type="text" id="uName" placeholder="John" required>
+        </label>
+      
+        <label for="uEmail">Email
+          <input type="email" id="uEmail" placeholder="for@example.com" required>
+        </label>
+      
+        <label for="uPhone">Phone
+          <input type="text" id="uPhone" placeholder="8901454545" required>
+        </label>
+      
+        <button type="submit">Обновить пользователя</button>
+      </form>
+      
+      <div id="userProfile"></div>
+
+    <script src="./lesson-32-2.js"></script>
+</body>
+
+</html>
