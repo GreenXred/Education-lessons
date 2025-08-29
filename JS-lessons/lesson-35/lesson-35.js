@@ -66,7 +66,7 @@ class Employee extends Person {
       }
 
     introduce() {
-        console.log(`Я работаю на позиции - ${this.position}.`);
+        this.work();
     }
 }
 
