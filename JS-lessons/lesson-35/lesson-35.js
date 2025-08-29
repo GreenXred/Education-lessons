@@ -56,8 +56,8 @@ console.log(Student.prototype);
 // Переопредели метод introduce так, чтобы он также включал информацию о должности;
 
 class Employee extends Person {
-    constructor(position) {
-        super('');
+    constructor(name, position) {
+        super(name);
         this.position = position;
     }
 
@@ -66,11 +66,11 @@ class Employee extends Person {
       }
 
     introduce() {
-        console.log(`Я работаю на позиции - ${this.position}.`);
+        console.log(`Привет, меня зовут ${this.name}. Я работаю на позиции - ${this.position}.`);
     }
 }
 
-const Alice = new Employee('Стажер');
+const Alice = new Employee('Alice', 'Стажер');
 Alice.introduce();
 
 // ---'Я работаю на позиции - Стажер.' выводится на отдельной строке. Чтобы он выводился в одну строку, нужно использовать геттер метод, как писал выше---
