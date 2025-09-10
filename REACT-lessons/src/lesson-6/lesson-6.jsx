@@ -12,16 +12,20 @@ function Counter() {
 
     return (
         <div>
-            <button onClick={decrease} style={{ color: count === 0 ? "red" : "black" }}>
-                {count === 0
-                    ? "Пожалуйста, измените количество, оно не может быть равно 0"
-                    : `Count: ${count}`}
-            </button>
+            <button onClick={decrease}>Count: {count}</button>
+            <div>
+                <p style={{
+                    color: count === 0 ? "red" : "black",
+                    visibility: count === 0 ? "visible" : "hidden"
+                }}>
+                    Пожалуйста, измените количество, оно не может быть равно 0
+                </p>
+            </div>
         </div>
     );
 }
 
-//export default Counter;
+// export default Counter;
 
 //2. По аналогии со вторым примером сделать кнопку получения конкретного поста. На странице должно быть поле ввода ID поста. 
 // При клике на кнопку, нужно взять этот ID из поля, получить по нему данные и показать их на странице.
@@ -47,7 +51,7 @@ const arrayPost = [
     }
 ];
 
-function getPost() {
+function GetPost() {
     const [post, setPost] = useState(null);
     const [postId, setPostId] = useState("");
 
@@ -57,8 +61,8 @@ function getPost() {
     };
     return (
         <div>
-            <input style={{width: "200px"}}
-                type="number" 
+            <input style={{ width: "200px" }}
+                type="number"
                 value={postId}
                 placeholder="Введите ID поста (только 1-3)"
                 onChange={(event) => setPostId(event.target.value)}
@@ -78,4 +82,4 @@ function getPost() {
     );
 }
 
-export default getPost;
+export default GetPost;
