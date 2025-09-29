@@ -1,9 +1,9 @@
-import ButtonRef from './lesson-15/buttonRef.jsx';
+import ShowWindowSize from "./lesson-18/showWindowSize";
 
 export default function App() {
     return (
         <div>
-            <ButtonRef />
+            <ShowWindowSize />
         </div>
     )
 }
