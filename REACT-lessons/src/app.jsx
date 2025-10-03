@@ -1,31 +1,18 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './lesson-24/layout.jsx';
-import About from './lesson-24/pages/about/about.jsx';
-import Posts from './lesson-24/pages/posts/posts.jsx';
-import Feedback from './lesson-24/pages/feedback/feedback.jsx';
+// import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// import GetPosts from './lesson-25/pages/posts'
+// import Post from "./lesson-25/pages/post.jsx";
+// import Home from "./lesson-25/pages/home.jsx";
 
-
-const router = createBrowserRouter([
-    {
-        path: '/',               // корневой путь
-        element: <Layout />,     // обёртка с навигацией
-        children: [              // дочерние маршруты
-            {
-                index: true,         // это путь "/"
-                element: <About />
-            },
-            {
-                path: 'posts',
-                element: <Posts />
-            },
-            {
-                path: 'feedback',
-                element: <Feedback />
-            }
-        ]
-    }
-]);
-
-export default function App() {
-    return <RouterProvider router={router} />;
-}
+// export default function App() {
+//     return (
+//         <BrowserRouter>
+//             <Routes>
+//                 <Route path="/" element={<Navigate to="/home" replace />} /> 
+//                 <Route path="/home" element={<Home />} /> 
+//                 <Route path="/posts" element={<GetPosts />} /> 
+//                 <Route path="/posts/:id" element={<Post />}  />
+//                 <Route path="*" element={<div>Страница не найдена!</div>} />
+//             </Routes>
+//         </BrowserRouter>
+//     );
+// }
