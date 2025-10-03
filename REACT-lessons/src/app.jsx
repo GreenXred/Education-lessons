@@ -1,18 +1,21 @@
-// import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// import GetPosts from './lesson-25/pages/posts'
-// import Post from "./lesson-25/pages/post.jsx";
-// import Home from "./lesson-25/pages/home.jsx";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import React from "react";
+import Home from "./lesson-25/pages/home.jsx";
+import GetPosts from "./lesson-25/pages/posts.jsx";
+import Post from "./lesson-25/pages/post.jsx";
 
-// export default function App() {
-//     return (
-//         <BrowserRouter>
-//             <Routes>
-//                 <Route path="/" element={<Navigate to="/home" replace />} /> 
-//                 <Route path="/home" element={<Home />} /> 
-//                 <Route path="/posts" element={<GetPosts />} /> 
-//                 <Route path="/posts/:id" element={<Post />}  />
-//                 <Route path="*" element={<div>Страница не найдена!</div>} />
-//             </Routes>
-//         </BrowserRouter>
-//     );
-// }
+const router = createBrowserRouter([
+    { path: "/", element: <Navigate to="/home" replace /> },
+    { path: "/home", element: <Home /> },
+    { path: "/posts", element: <GetPosts /> },
+    {
+        path: "/posts/:id",
+        element: <Post />,
+        errorElement: <h2>Что-то пошло не так 😢</h2>,
+    },
+    { path: "*", element: <div>Страница не найдена!</div> },
+]);
+
+export default function App() {
+    return <RouterProvider router={router} />;
+}
