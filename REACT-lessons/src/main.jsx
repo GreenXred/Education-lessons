@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { store } from './lesson-28/app/store.jsx';
+import App from './app.jsx';
 import { Provider } from 'react-redux';
+import { store } from './lesson-29/app/store.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
