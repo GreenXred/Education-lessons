@@ -19,6 +19,8 @@ export default function Users() {
         dispatch(removeUser(id));
     };
 
+    const isEmpty = users.length === 0; // Проверка на пустой список
+
     return (
         <div>
             <h2>Пользователи</h2>
@@ -31,14 +33,18 @@ export default function Users() {
             />
             <button onClick={handleAdd}>Добавить пользователя</button>
 
-            <ul>
-                {users.map((user) => (
-                    <li key={user.id}>
-                        {user.name}{' '}
-                        <button onClick={() => handleRemove(user.id)}>Удалить</button>
-                    </li>
-                ))}
-            </ul>
+            {isEmpty ? (
+                <p>Нет пользователей</p>
+            ) : (
+                <ul>
+                    {users.map((user) => (
+                        <li key={user.id}>
+                            {user.name}{' '}
+                            <button onClick={() => handleRemove(user.id)}>Удалить</button>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }

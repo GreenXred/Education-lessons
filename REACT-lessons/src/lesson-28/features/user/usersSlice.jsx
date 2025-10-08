@@ -7,15 +7,18 @@ const initialState = {
 
 const usersSlice = createSlice({
     name: 'users',
-    initialState, 
+    initialState,
     reducers: {
-        addUser(state, action) { 
+        addUser(state, action) {
             const newUser = { id: Date.now(), name: action.payload }; //  { type: 'users/addUser', payload: 'Иван' } - dispatch(addUser('Иван'));
-            state.list.push(newUser); 
+            state.list.push(newUser);
         },
         removeUser(state, action) {
-            const idToRemove = action.payload;
-            state.list = state.list.filter((user) => user.id !== idToRemove); // action: { type: 'users/removeUser', payload: 123 } - dispatch(removeUser(123));
+            const id = action.payload;
+            const idx = state.list.findIndex(u => u.id === id);
+            if (idx !== -1) { // если пользователь найден
+                state.list.splice(idx, 1); 
+            }
         },
     },
 });
