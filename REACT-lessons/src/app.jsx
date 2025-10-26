@@ -1,10 +1,10 @@
-import React from 'react';
-import PostList from './lesson-29/components/postList.jsx';
+import Suspense from './lesson-38/suspense';
 
 export default function App() {
   return (
     <div>
-      <PostList /> 
+      <h2>React Suspense</h2>
+      <Suspense />
     </div>
   );
 }
