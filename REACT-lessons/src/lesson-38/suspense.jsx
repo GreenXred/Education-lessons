@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 
 function fetchData() {
     let data;
@@ -14,9 +14,8 @@ function fetchData() {
     };
 }
 
-const resource = fetchData();
-
 function Post() {
+    const [resource] = useState(fetchData); 
     const post = resource.read();
     return <h2>{post.title}</h2>;
 }
