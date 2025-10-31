@@ -14,7 +14,7 @@ type FeaturedProduct = BasicProduct & DiscountProduct;
 
 function displayFeaturedProduct(product: FeaturedProduct): void {
     const discountedPrice = product.price * (1 - product.discount / 100);
-    console.log(`Product: ${product.name} - ${discountedPrice.toFixed()} (Discount: ${product.discount}%)`);
+    console.log(`Product: ${product.name} - ${discountedPrice.toFixed(2)} (Discount: ${product.discount}%)`);
 }
 
 const featuredProduct: FeaturedProduct = {
@@ -30,9 +30,14 @@ displayFeaturedProduct(featuredProduct);
 
 const data: unknown = "some string";
 
-if (typeof data === 'string') {
-    console.log(data.toUpperCase());
+
+function handleUnknown(data: unknown): void {
+    if (typeof data === 'string') {
+        console.log(data.toUpperCase());
+    }
 }
+
+handleUnknown(data);
 
 // 3*. Представь, что ты разрабатываешь приложение для списка задач. 
 // В этом задании нужно создать типы для задач и пользователей, а затем отфильтровать задачи, 
@@ -114,10 +119,9 @@ function filterTasks(tasks: Task[], person: Person): Task[] {
         return tasks;
     } else if (person.role === 'user') {
         return tasks.filter(task => task.isActive);
-    } else if (person.role === 'guest') {
-        return tasks.filter(task => task.isPublic);
-    }
-    return [];
+    } 
+
+    return tasks.filter(task => task.isPublic); // guest
 }
 
 
